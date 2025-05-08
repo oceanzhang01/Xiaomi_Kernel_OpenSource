@@ -330,8 +330,8 @@ static int is_stack(struct vm_area_struct *vma)
 	return vma->vm_start <= vma->vm_mm->start_stack &&
 		vma->vm_end >= vma->vm_mm->start_stack;
 }
-
-__attribute__((noinline)) void show_vma_header_prefix(struct seq_file *m,
+#include <linux/compiler.h> 
+noinline void show_vma_header_prefix(struct seq_file *m,
 				   unsigned long start, unsigned long end,
 				   vm_flags_t flags, unsigned long long pgoff,
 				   dev_t dev, unsigned long ino)
