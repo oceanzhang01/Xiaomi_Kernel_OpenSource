@@ -331,7 +331,7 @@ static int is_stack(struct vm_area_struct *vma)
 		vma->vm_end >= vma->vm_mm->start_stack;
 }
 
-static void show_vma_header_prefix(struct seq_file *m,
+void show_vma_header_prefix(struct seq_file *m,
 				   unsigned long start, unsigned long end,
 				   vm_flags_t flags, unsigned long long pgoff,
 				   dev_t dev, unsigned long ino)
@@ -347,7 +347,7 @@ static void show_vma_header_prefix(struct seq_file *m,
 		   pgoff,
 		   MAJOR(dev), MINOR(dev), ino);
 }
-
+EXPORT_SYMBOL(show_vma_header_prefix);
 static void
 show_map_vma(struct seq_file *m, struct vm_area_struct *vma)
 {
